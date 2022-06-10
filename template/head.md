@@ -27,7 +27,7 @@ yarn add react-native-sunmi-printer
 
 ## Example Import
 ```js
-import { SPrinter } from 'react-native-sunmi-printer';
+import { SPrinter, Constants } from 'react-native-sunmi-printer';
 
 // ...
 await SPrinter.connect();

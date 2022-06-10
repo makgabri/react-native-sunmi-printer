@@ -17,75 +17,7 @@ const SunmiPrinter = NativeModules.SunmiPrinter
       }
     );
 
-/**
- * @enum {ALIGN}
- */
-const ALIGN_CONSTANTS = {
-  /** @type {Number} LEFT - left align */
-  LEFT: 0,
-  /** @type {Number} CENTER - center align */
-  CENTER: 1,
-  /** @type {Number} RIGHT - right align */
-  RIGHT: 2
-}
-/**
- * @enum {BARCODE_TYPE}
- */
-const BARCODE_TYPE_CONSTANTS = {
-  /** @type {Number} UPCA */
-  UPCA: 0,
-  /** @type {Number} UPCE */
-  UPCE: 1,
-  /** @type {Number} JAN13 */
-  JAN13: 2,
-  /** @type {Number} JAN8 */
-  JAN8: 3,
-  /** @type {Number} CODE39 */
-  CODE39: 4,
-  /** @type {Number} ITF */
-  ITF: 5,
-  /** @type {Number} CODABAR */
-  CODABAR: 6,
-  /** @type {Number} CODE93 */
-  CODE93: 7,
-  /** @type {Number} CODE128 */
-  CODE128: 8
-}
-/**
- * @enum {BARCODE_TEXT_POSITION}
- */
-const BARCODE_TEXT_POSITION_CONSTANTS = {
-  /** @type {Number} NO_PRINT - don't print text of barcode */
-  NO_PRINT: 0,
-  /** @type {Number} ABOVE - print text of barcode above barcode */
-  ABOVE: 1,
-  /** @type {Number} BELOW - don't print text of barcode below barcode */
-  BELOW: 2,
-  /** @type {Number} BOTH - don't print text of barcode above and below barcode */
-  BOTH: 3
-}
-/**
- * @enum {QR_ERROR_LEVEL}
- */
-const QR_ERROR_LEVEL_CONSTANTS = {
-  /** @type {Number} L - QR Code error level of L ~ 7% */
-  L: 0,
-  /** @type {Number} M - QR Code error level of M ~ 15% */
-  M: 1,
-  /** @type {Number} Q - QR Code error level of Q ~ 25% */
-  Q: 2,
-  /** @type {Number} H - QR Code error level of H ~ 30% */
-  H: 3
-}
-
 const SPrinter = {
-  Constants: {
-    Align: ALIGN_CONSTANTS,
-    Barcode: BARCODE_TYPE_CONSTANTS,
-    BarcodeText: BARCODE_TEXT_POSITION_CONSTANTS,
-    QRError: QR_ERROR_LEVEL_CONSTANTS
-  },
-
   /**
    * This function connects to the printer
    * @example
@@ -221,7 +153,7 @@ const SPrinter = {
    * @param {ALIGN} align - align to set
    * @example
    * // returns { success: true }
-   * await SPrinter.setAlign(SPrinter.Constants.Align.CENTER);
+   * await SPrinter.setAlign(Constants.Align.CENTER);
    * @returns {Promise<any>} success message.
    */
   setAlign: async function setAlign(align: Number): Promise<any> {
@@ -249,7 +181,7 @@ const SPrinter = {
    * @param {BARCODE_TEXT_POSITION} textPosition - position of text
    * @example
    * // returns { success: true }
-   * await SPrinter.printBarCode("SecretABC", SPrinter.Constants.Barcode.CODE39, 90, 10, SPrinter.Constants.BarcodeText.ABOVE);
+   * await SPrinter.printBarCode("SecretABC", Constants.Barcode.CODE39, 90, 10, Constants.BarcodeText.ABOVE);
    * @returns {Promise<any>} success message.
    */
   printBarCode: async function printBarCode(
@@ -319,4 +251,73 @@ const SPrinter = {
   },
 };
 
-export { SPrinter };
+/**
+ * @enum {ALIGN}
+ */
+const ALIGN_CONSTANTS = {
+  /** @type {Number} LEFT - left align */
+  LEFT: 0,
+  /** @type {Number} CENTER - center align */
+  CENTER: 1,
+  /** @type {Number} RIGHT - right align */
+  RIGHT: 2
+}
+/**
+ * @enum {BARCODE_TYPE}
+ */
+const BARCODE_TYPE_CONSTANTS = {
+  /** @type {Number} UPCA */
+  UPCA: 0,
+  /** @type {Number} UPCE */
+  UPCE: 1,
+  /** @type {Number} JAN13 */
+  JAN13: 2,
+  /** @type {Number} JAN8 */
+  JAN8: 3,
+  /** @type {Number} CODE39 */
+  CODE39: 4,
+  /** @type {Number} ITF */
+  ITF: 5,
+  /** @type {Number} CODABAR */
+  CODABAR: 6,
+  /** @type {Number} CODE93 */
+  CODE93: 7,
+  /** @type {Number} CODE128 */
+  CODE128: 8
+}
+/**
+ * @enum {BARCODE_TEXT_POSITION}
+ */
+const BARCODE_TEXT_POSITION_CONSTANTS = {
+  /** @type {Number} NO_PRINT - don't print text of barcode */
+  NO_PRINT: 0,
+  /** @type {Number} ABOVE - print text of barcode above barcode */
+  ABOVE: 1,
+  /** @type {Number} BELOW - don't print text of barcode below barcode */
+  BELOW: 2,
+  /** @type {Number} BOTH - don't print text of barcode above and below barcode */
+  BOTH: 3
+}
+/**
+ * @enum {QR_ERROR_LEVEL}
+ */
+const QR_ERROR_LEVEL_CONSTANTS = {
+  /** @type {Number} L - QR Code error level of L ~ 7% */
+  L: 0,
+  /** @type {Number} M - QR Code error level of M ~ 15% */
+  M: 1,
+  /** @type {Number} Q - QR Code error level of Q ~ 25% */
+  Q: 2,
+  /** @type {Number} H - QR Code error level of H ~ 30% */
+  H: 3
+}
+
+const Constants = {
+  Align: ALIGN_CONSTANTS,
+  Barcode: BARCODE_TYPE_CONSTANTS,
+  BarcodeText: BARCODE_TEXT_POSITION_CONSTANTS,
+  QRError: QR_ERROR_LEVEL_CONSTANTS
+}
+
+
+export { SPrinter, Constants };

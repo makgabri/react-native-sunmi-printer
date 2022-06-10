@@ -4,7 +4,7 @@ import * as React from 'react';
 import { Modal } from 'react-native';
 
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import { SPrinter } from 'react-native-sunmi-printer';
+import { SPrinter, Constants } from 'react-native-sunmi-printer';
 import { ScrollView } from 'react-native';
 import { TextInput } from 'react-native';
 import { Dimensions } from 'react-native';
@@ -16,7 +16,7 @@ export default function App() {
   const [msg, setMsg] = useState('');
   const [printText, setPrintText] = useState('Example');
   const [printLines, setPrintLines] = useState(2);
-  const [printAlign, setPrintAlign] = useState(SPrinter.Constants.Align.CENTER);
+  const [printAlign, setPrintAlign] = useState(Constants.Align.CENTER);
   const [printFontSize, setPrintFontSize] = useState(18);
 
   const showModal = (
@@ -276,12 +276,12 @@ export default function App() {
             >
               <TouchableOpacity
                 onPress={() => {
-                  setPrintAlign(SPrinter.Constants.Align.LEFT);
+                  setPrintAlign(Constants.Align.LEFT);
                 }}
                 style={[
                   styles.numInput,
                   { width: 120 },
-                  printAlign === SPrinter.Constants.Align.LEFT
+                  printAlign === Constants.Align.LEFT
                     ? {
                         borderColor: 'green',
                         backgroundColor: 'rgba(0, 255, 0, 0.3)',
@@ -293,12 +293,12 @@ export default function App() {
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => {
-                  setPrintAlign(SPrinter.Constants.Align.CENTER);
+                  setPrintAlign(Constants.Align.CENTER);
                 }}
                 style={[
                   styles.numInput,
                   { width: 120 },
-                  printAlign === SPrinter.Constants.Align.CENTER
+                  printAlign === Constants.Align.CENTER
                     ? {
                         borderColor: 'green',
                         backgroundColor: 'rgba(0, 255, 0, 0.3)',
@@ -310,12 +310,12 @@ export default function App() {
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => {
-                  setPrintAlign(SPrinter.Constants.Align.RIGHT);
+                  setPrintAlign(Constants.Align.RIGHT);
                 }}
                 style={[
                   styles.numInput,
                   { width: 120 },
-                  printAlign === SPrinter.Constants.Align.RIGHT
+                  printAlign === Constants.Align.RIGHT
                     ? {
                         borderColor: 'green',
                         backgroundColor: 'rgba(0, 255, 0, 0.3)',

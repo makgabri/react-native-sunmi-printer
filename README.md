@@ -27,7 +27,7 @@ yarn add react-native-sunmi-printer
 
 ## Example Import
 ```js
-import { SPrinter } from 'react-native-sunmi-printer';
+import { SPrinter, Constants } from 'react-native-sunmi-printer';
 
 // ...
 await SPrinter.connect();
@@ -68,167 +68,71 @@ try {
 
 ### Table of Contents
 
-*   [ALIGN_CONSTANTS][1]
-    *   [LEFT][2]
-    *   [CENTER][3]
-    *   [RIGHT][4]
-*   [BARCODE_TYPE_CONSTANTS][5]
-    *   [UPCA][6]
-    *   [UPCE][7]
-    *   [JAN13][8]
-    *   [JAN8][9]
-    *   [CODE39][10]
-    *   [ITF][11]
-    *   [CODABAR][12]
-    *   [CODE93][13]
-    *   [CODE128][14]
-*   [BARCODE_TEXT_POSITION_CONSTANTS][15]
-    *   [NO_PRINT][16]
-    *   [ABOVE][17]
-    *   [BELOW][18]
-    *   [BOTH][19]
-*   [QR_ERROR_LEVEL_CONSTANTS][20]
-    *   [L][21]
-    *   [M][22]
-    *   [Q][23]
-    *   [H][24]
-*   [connect][25]
+*   [connect][1]
+    *   [Examples][2]
+*   [disconnect][3]
+    *   [Examples][4]
+*   [reset][5]
+    *   [Examples][6]
+*   [testPrint][7]
+    *   [Examples][8]
+*   [getPrinterSpecs][9]
+    *   [Examples][10]
+*   [getPrinterStatus][11]
+    *   [Examples][12]
+*   [cutPaper][13]
+    *   [Examples][14]
+*   [printText][15]
+    *   [Parameters][16]
+    *   [Examples][17]
+*   [printTextCustom][18]
+    *   [Parameters][19]
+    *   [Examples][20]
+*   [printEmptyLines][21]
+    *   [Parameters][22]
+    *   [Examples][23]
+*   [setAlign][24]
+    *   [Parameters][25]
     *   [Examples][26]
-*   [disconnect][27]
-    *   [Examples][28]
-*   [reset][29]
-    *   [Examples][30]
-*   [testPrint][31]
+*   [setFontSize][27]
+    *   [Parameters][28]
+    *   [Examples][29]
+*   [printBarCode][30]
+    *   [Parameters][31]
     *   [Examples][32]
-*   [getPrinterSpecs][33]
-    *   [Examples][34]
-*   [getPrinterStatus][35]
-    *   [Examples][36]
-*   [cutPaper][37]
+*   [printQRCode][33]
+    *   [Parameters][34]
+    *   [Examples][35]
+*   [printTable][36]
+    *   [Parameters][37]
     *   [Examples][38]
-*   [printText][39]
+*   [printBase64Image][39]
     *   [Parameters][40]
     *   [Examples][41]
-*   [printTextCustom][42]
-    *   [Parameters][43]
-    *   [Examples][44]
-*   [printEmptyLines][45]
-    *   [Parameters][46]
-    *   [Examples][47]
-*   [setAlign][48]
-    *   [Parameters][49]
-    *   [Examples][50]
-*   [setFontSize][51]
-    *   [Parameters][52]
-    *   [Examples][53]
-*   [printBarCode][54]
-    *   [Parameters][55]
-    *   [Examples][56]
-*   [printQRCode][57]
-    *   [Parameters][58]
-    *   [Examples][59]
-*   [printTable][60]
-    *   [Parameters][61]
-    *   [Examples][62]
-*   [printBase64Image][63]
-    *   [Parameters][64]
-    *   [Examples][65]
-
-## ALIGN_CONSTANTS
-
-Type: ALIGN
-
-### LEFT
-
-Type: [Number][66]
-
-### CENTER
-
-Type: [Number][66]
-
-### RIGHT
-
-Type: [Number][66]
-
-## BARCODE_TYPE_CONSTANTS
-
-Type: BARCODE_TYPE
-
-### UPCA
-
-Type: [Number][66]
-
-### UPCE
-
-Type: [Number][66]
-
-### JAN13
-
-Type: [Number][66]
-
-### JAN8
-
-Type: [Number][66]
-
-### CODE39
-
-Type: [Number][66]
-
-### ITF
-
-Type: [Number][66]
-
-### CODABAR
-
-Type: [Number][66]
-
-### CODE93
-
-Type: [Number][66]
-
-### CODE128
-
-Type: [Number][66]
-
-## BARCODE_TEXT_POSITION_CONSTANTS
-
-Type: BARCODE_TEXT_POSITION
-
-### NO_PRINT
-
-Type: [Number][66]
-
-### ABOVE
-
-Type: [Number][66]
-
-### BELOW
-
-Type: [Number][66]
-
-### BOTH
-
-Type: [Number][66]
-
-## QR_ERROR_LEVEL_CONSTANTS
-
-Type: QR_ERROR_LEVEL
-
-### L
-
-Type: [Number][66]
-
-### M
-
-Type: [Number][66]
-
-### Q
-
-Type: [Number][66]
-
-### H
-
-Type: [Number][66]
+*   [ALIGN_CONSTANTS][42]
+    *   [LEFT][43]
+    *   [CENTER][44]
+    *   [RIGHT][45]
+*   [BARCODE_TYPE_CONSTANTS][46]
+    *   [UPCA][47]
+    *   [UPCE][48]
+    *   [JAN13][49]
+    *   [JAN8][50]
+    *   [CODE39][51]
+    *   [ITF][52]
+    *   [CODABAR][53]
+    *   [CODE93][54]
+    *   [CODE128][55]
+*   [BARCODE_TEXT_POSITION_CONSTANTS][56]
+    *   [NO_PRINT][57]
+    *   [ABOVE][58]
+    *   [BELOW][59]
+    *   [BOTH][60]
+*   [QR_ERROR_LEVEL_CONSTANTS][61]
+    *   [L][62]
+    *   [M][63]
+    *   [Q][64]
+    *   [H][65]
 
 ## connect
 
@@ -241,7 +145,7 @@ This function connects to the printer
 await SPrinter.connect();
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## disconnect
 
@@ -254,7 +158,7 @@ This function disconnects the printer
 await SPrinter.disconnect();
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## reset
 
@@ -267,7 +171,7 @@ This function resets any printing adjustments sent(e.g align or font size)
 await SPrinter.reset();
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## testPrint
 
@@ -280,7 +184,7 @@ This function runs the default test print
 await SPrinter.testPrint();
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## getPrinterSpecs
 
@@ -293,7 +197,7 @@ This function returns the printer specs including model, paper, printer version 
 await SPrinter.getPrinterSpecs();
 ```
 
-Returns **[Promise][67]\<any>** Spec object.
+Returns **[Promise][66]\<any>** Spec object.
 
 ## getPrinterStatus
 
@@ -306,7 +210,7 @@ This function returns the printer current status such as printing or running
 await SPrinter.getPrinterStatus();
 ```
 
-Returns **[Promise][67]<[String][68]>** success message.
+Returns **[Promise][66]<[String][67]>** success message.
 
 ## cutPaper
 
@@ -319,7 +223,7 @@ This function cuts the paper
 await SPrinter.cutPaper();
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## printText
 
@@ -327,7 +231,7 @@ This function prints a given text
 
 ### Parameters
 
-*   `text` **[String][68]** text to print
+*   `text` **[String][67]** text to print
 
 ### Examples
 
@@ -336,7 +240,7 @@ This function prints a given text
 await SPrinter.printText("Example of printing");
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## printTextCustom
 
@@ -344,11 +248,11 @@ This function prints a given text with styling of text
 
 ### Parameters
 
-*   `text` **[String][68]** text to print
-*   `size` **[Number][66]** size of text
+*   `text` **[String][67]** text to print
+*   `size` **[Number][68]** size of text
 *   `isBold` **[boolean][69]** whether text is bold
 *   `isUnderline` **[boolean][69]** whether text is underelined
-*   `typeface` **[String][68]** typeface of text
+*   `typeface` **[String][67]** typeface of text
 
 ### Examples
 
@@ -357,7 +261,7 @@ This function prints a given text with styling of text
 await SPrinter.printTextCustom("Example of custom printing", "28", true, true, "gh");
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## printEmptyLines
 
@@ -365,7 +269,7 @@ This function prints a number of empty lines
 
 ### Parameters
 
-*   `num` **[Number][66]** num of empty lines
+*   `num` **[Number][68]** num of empty lines
 
 ### Examples
 
@@ -374,7 +278,7 @@ This function prints a number of empty lines
 await SPrinter.printEmptyLines(3);
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## setAlign
 
@@ -388,10 +292,10 @@ This function sets the alignment of next print
 
 ```javascript
 // returns { success: true }
-await SPrinter.setAlign(SPrinter.Constants.Align.CENTER);
+await SPrinter.setAlign(Constants.Align.CENTER);
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## setFontSize
 
@@ -399,7 +303,7 @@ This function sets the font size of next print
 
 ### Parameters
 
-*   `fontSize` **[Number][66]** font size to set
+*   `fontSize` **[Number][68]** font size to set
 
 ### Examples
 
@@ -408,7 +312,7 @@ This function sets the font size of next print
 await SPrinter.setFontSize(28);
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## printBarCode
 
@@ -416,20 +320,20 @@ This function prints a barcode given data
 
 ### Parameters
 
-*   `data` **[String][68]** data of barcode
+*   `data` **[String][67]** data of barcode
 *   `symbology` **BARCODE_TYPE** symbol of barcode type
-*   `height` **[Number][66]** height of barcode
-*   `width` **[Number][66]** width of barcode
+*   `height` **[Number][68]** height of barcode
+*   `width` **[Number][68]** width of barcode
 *   `textPosition` **BARCODE_TEXT_POSITION** position of text
 
 ### Examples
 
 ```javascript
 // returns { success: true }
-await SPrinter.printBarCode("SecretABC", SPrinter.Constants.Barcode.CODE39, 90, 10, SPrinter.Constants.BarcodeText.ABOVE);
+await SPrinter.printBarCode("SecretABC", Constants.Barcode.CODE39, 90, 10, Constants.BarcodeText.ABOVE);
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## printQRCode
 
@@ -437,8 +341,8 @@ This function prints a qr code given data
 
 ### Parameters
 
-*   `data` **[String][68]** data of qr code
-*   `modulesize` **[Number][66]** module size of qr code
+*   `data` **[String][67]** data of qr code
+*   `modulesize` **[Number][68]** module size of qr code
 *   `errorlevel` **QR_ERROR_LEVEL** error level of qr code
 
 ### Examples
@@ -448,7 +352,7 @@ This function prints a qr code given data
 await SPrinter.printQRCode("URL TO SOME SECRET", 10, 15);
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## printTable
 
@@ -456,9 +360,9 @@ This function prints a table given data
 
 ### Parameters
 
-*   `texts` **[Array][70]<[String][68]>** an array of texts to print
-*   `width` **[Array][70]<[Number][66]>** an array defining width of corresponding text
-*   `align` **[Array][70]<[Number][66]>** an array defining align of corresponding text
+*   `texts` **[Array][70]<[String][67]>** an array of texts to print
+*   `width` **[Array][70]<[Number][68]>** an array defining width of corresponding text
+*   `align` **[Array][70]<[Number][68]>** an array defining align of corresponding text
 
 ### Examples
 
@@ -467,7 +371,7 @@ This function prints a table given data
 await SPrinter.printTable(['a','b','c'], [3,3,5], [1,2,0]);
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
 ## printBase64Image
 
@@ -475,7 +379,7 @@ This function prints an image given the base 64 string
 
 ### Parameters
 
-*   `base64` **[String][68]** base64 string of image
+*   `base64` **[String][67]** base64 string of image
 
 ### Examples
 
@@ -484,143 +388,239 @@ This function prints an image given the base 64 string
 await SPrinter.printBase64Image('some base 64 image string');
 ```
 
-Returns **[Promise][67]\<any>** success message.
+Returns **[Promise][66]\<any>** success message.
 
-[1]: #align_constants
+## ALIGN_CONSTANTS
 
-[2]: #left
+Type: ALIGN
 
-[3]: #center
+### LEFT
 
-[4]: #right
+Type: [Number][68]
 
-[5]: #barcode_type_constants
+### CENTER
 
-[6]: #upca
+Type: [Number][68]
 
-[7]: #upce
+### RIGHT
 
-[8]: #jan13
+Type: [Number][68]
 
-[9]: #jan8
+## BARCODE_TYPE_CONSTANTS
 
-[10]: #code39
+Type: BARCODE_TYPE
 
-[11]: #itf
+### UPCA
 
-[12]: #codabar
+Type: [Number][68]
 
-[13]: #code93
+### UPCE
 
-[14]: #code128
+Type: [Number][68]
 
-[15]: #barcode_text_position_constants
+### JAN13
 
-[16]: #no_print
+Type: [Number][68]
 
-[17]: #above
+### JAN8
 
-[18]: #below
+Type: [Number][68]
 
-[19]: #both
+### CODE39
 
-[20]: #qr_error_level_constants
+Type: [Number][68]
 
-[21]: #l
+### ITF
 
-[22]: #m
+Type: [Number][68]
 
-[23]: #q
+### CODABAR
 
-[24]: #h
+Type: [Number][68]
 
-[25]: #connect
+### CODE93
 
-[26]: #examples
+Type: [Number][68]
 
-[27]: #disconnect
+### CODE128
 
-[28]: #examples-1
+Type: [Number][68]
 
-[29]: #reset
+## BARCODE_TEXT_POSITION_CONSTANTS
 
-[30]: #examples-2
+Type: BARCODE_TEXT_POSITION
 
-[31]: #testprint
+### NO_PRINT
 
-[32]: #examples-3
+Type: [Number][68]
 
-[33]: #getprinterspecs
+### ABOVE
 
-[34]: #examples-4
+Type: [Number][68]
 
-[35]: #getprinterstatus
+### BELOW
 
-[36]: #examples-5
+Type: [Number][68]
 
-[37]: #cutpaper
+### BOTH
 
-[38]: #examples-6
+Type: [Number][68]
 
-[39]: #printtext
+## QR_ERROR_LEVEL_CONSTANTS
 
-[40]: #parameters
+Type: QR_ERROR_LEVEL
 
-[41]: #examples-7
+### L
 
-[42]: #printtextcustom
+Type: [Number][68]
 
-[43]: #parameters-1
+### M
 
-[44]: #examples-8
+Type: [Number][68]
 
-[45]: #printemptylines
+### Q
 
-[46]: #parameters-2
+Type: [Number][68]
 
-[47]: #examples-9
+### H
 
-[48]: #setalign
+Type: [Number][68]
 
-[49]: #parameters-3
+[1]: #connect
 
-[50]: #examples-10
+[2]: #examples
 
-[51]: #setfontsize
+[3]: #disconnect
 
-[52]: #parameters-4
+[4]: #examples-1
 
-[53]: #examples-11
+[5]: #reset
 
-[54]: #printbarcode
+[6]: #examples-2
 
-[55]: #parameters-5
+[7]: #testprint
 
-[56]: #examples-12
+[8]: #examples-3
 
-[57]: #printqrcode
+[9]: #getprinterspecs
 
-[58]: #parameters-6
+[10]: #examples-4
 
-[59]: #examples-13
+[11]: #getprinterstatus
 
-[60]: #printtable
+[12]: #examples-5
 
-[61]: #parameters-7
+[13]: #cutpaper
 
-[62]: #examples-14
+[14]: #examples-6
 
-[63]: #printbase64image
+[15]: #printtext
 
-[64]: #parameters-8
+[16]: #parameters
 
-[65]: #examples-15
+[17]: #examples-7
 
-[66]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
+[18]: #printtextcustom
 
-[67]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[19]: #parameters-1
 
-[68]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+[20]: #examples-8
+
+[21]: #printemptylines
+
+[22]: #parameters-2
+
+[23]: #examples-9
+
+[24]: #setalign
+
+[25]: #parameters-3
+
+[26]: #examples-10
+
+[27]: #setfontsize
+
+[28]: #parameters-4
+
+[29]: #examples-11
+
+[30]: #printbarcode
+
+[31]: #parameters-5
+
+[32]: #examples-12
+
+[33]: #printqrcode
+
+[34]: #parameters-6
+
+[35]: #examples-13
+
+[36]: #printtable
+
+[37]: #parameters-7
+
+[38]: #examples-14
+
+[39]: #printbase64image
+
+[40]: #parameters-8
+
+[41]: #examples-15
+
+[42]: #align_constants
+
+[43]: #left
+
+[44]: #center
+
+[45]: #right
+
+[46]: #barcode_type_constants
+
+[47]: #upca
+
+[48]: #upce
+
+[49]: #jan13
+
+[50]: #jan8
+
+[51]: #code39
+
+[52]: #itf
+
+[53]: #codabar
+
+[54]: #code93
+
+[55]: #code128
+
+[56]: #barcode_text_position_constants
+
+[57]: #no_print
+
+[58]: #above
+
+[59]: #below
+
+[60]: #both
+
+[61]: #qr_error_level_constants
+
+[62]: #l
+
+[63]: #m
+
+[64]: #q
+
+[65]: #h
+
+[66]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+[67]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String
+
+[68]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 
 [69]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 
