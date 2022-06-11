@@ -1,6 +1,6 @@
 {
-  "name": "react-native-sunmi-printer",
-  "version": "0.1.0",
+  "name": "@makgabri/react-native-sunmi-printer",
+  "version": "0.1.1",
   "description": "react native adaptation for sunmi printers",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",

@@ -18,16 +18,16 @@ available for android.
 ## Installation
 Using npm:
 ```
-npm install --save react-native-sunmi-printer
+npm install --save @makgabri/react-native-sunmi-printer
 ```
 or using yarn:
 ```
-yarn add react-native-sunmi-printer
+yarn add @makgabri/react-native-sunmi-printer
 ```
 
 ## Example Import
 ```js
-import { SPrinter, Constants } from 'react-native-sunmi-printer';
+import { SPrinter, Constants } from '@makgabri/react-native-sunmi-printer';
 
 // ...
 await SPrinter.connect();
